@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class Server {
+public class SocketReader {
 
     /**
      * Reads data from a socket connected to the specified IP address and port.
@@ -14,20 +14,18 @@ public class Server {
      * @return The response from the server as a string.
      * @throws IOException If an I/O error occurs when creating or accessing the socket.
      */
+
     public static String readFromSocket(String ipAddress, int port) throws IOException {
-        // Create a socket and connect to the specified IP address and port
         try (Socket socket = new Socket(ipAddress, port);
              BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
             StringBuilder response = new StringBuilder();
             String line;
 
-            // Read data from the socket
             while ((line = reader.readLine()) != null) {
                 response.append(line + "\n");
             }
 
-            // Return the data read from the socket
             return response.toString();
         }
     }
