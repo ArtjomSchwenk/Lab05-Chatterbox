@@ -5,6 +5,8 @@ import java.io.*;
 
 public class ChatterboxServer {
     int port;
+    private PrintWriter out;
+    private BufferedReader in;
 
     public ChatterboxServer(int port) {
         this.port = port;
@@ -31,5 +33,8 @@ public class ChatterboxServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void stopServer() {
+
     }
 }
