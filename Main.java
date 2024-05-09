@@ -1,18 +1,18 @@
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String serverAddress = "localhost";
+        String serverAddress = "127.0.0.1";
         int portNumber = 8080;
         String message = "Hello there";
 
         try {
-            Socket socket = new Socket(serverAddress, portNumber);
-            System.out.println("Connected to the server at " + socket.getInetAddress().getHostName() + " on port " + socket.getPort());
-            Connection connection  = new Connection(socket);
-            connection.write(message);
+            ServerSocket serverSocket = new ServerSocket(portNumber);
+            System.out.println("Connected to the server at " + serverSocket.getInetAddress().getHostName() + " on port " + serverSocket.getLocalPort());
+            Socket socket = serverSocket.accept();
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host: " + serverAddress);
         } catch (IOException e) {
