@@ -13,13 +13,16 @@ public class ChatterboxServer {
     }
 
     public void startServer(){
+        // TASK 01
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Chatterbox server listening on port " + port);
 
             while (true) {
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Client connected: " + clientSocket.getInetAddress());
+                System.out.println("Listening...");
+                Socket clientSocket = serverSocket.accept();    // waits for connection to be made
 
+                System.out.println("Client connected: " + clientSocket.getInetAddress());
+                /*
                 // Create input stream to read messages from client
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
                     String message;
@@ -29,6 +32,7 @@ public class ChatterboxServer {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                */
             }
         } catch (IOException e) {
             e.printStackTrace();
