@@ -39,7 +39,9 @@ public class ChatterboxServer {
                     e.printStackTrace();
                 }
 
+
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
