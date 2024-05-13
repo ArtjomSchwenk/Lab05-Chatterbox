@@ -2,6 +2,6 @@ package zuul;
 
 public class Start {
     public static void main(String[] args){
-        new Game().play();
+       // new Game().play();
     }
 }
