@@ -1,0 +1,35 @@
+
+
+client --> outputStream
+
+- Wir kommunizieren immer mit dem Server und nicht mit dem Spiel
+- Server ist der Vermittler zwischen Client und Spiel --> *Bidirektionale Kommunikation*
+- Server verarbeitet Daten
+- Server sendet Daten an Client
+
+Zuul --> InputStream --> readline() --> COMMANDS (WALK, GO, LOOK, etc)
+
+=Für Multiplayer=
+- Player Class
+- immer wenn sich eine ID verbindet, wird ein neuer Player erzeugt
+
+=Telnet=
+- nichts anderes wie ein Server
+- wenn telnet falsch konfiguriert ist, kann es zu Problemen kommen
+
+=Try - Catch=
+- *try*: Code, der ausgeführt wird
+- *catch*: Fehlerbehandlung
+--> Exceptions führen zum Bluescreen
+--> wenn etwas nicht klappt, wird ein Error geworfen
+
+=Try-With-Resources=
+- *try(resources)*
+- try(bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())) {
+    // Code
+}
+--> werden automatisch geschlossen
+
+!entweder throw oder catch! ==> Ästhetiksache
+
+NOTE FÜR SELF: >>Nano HTTP Server Example kopieren für Aufgabe kopieren<<
