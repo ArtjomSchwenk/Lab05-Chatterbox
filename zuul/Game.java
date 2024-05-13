@@ -13,8 +13,8 @@ public class Game {
     private Parser parser;
     private GameStatus gameStatus;
     private World world;
-    private BufferedReader input; // Use BufferedReader directly
-    private PrintWriter output;   // Use PrintWriter directly
+    private BufferedReader input;
+    private PrintWriter output;
 
     /**
      * Constructor initializes the game with input and output streams.
@@ -48,10 +48,7 @@ public class Game {
      * Prints the initial welcome message.
      */
     private void printWelcome() {
-        output.println();
-        output.println(world.getDescription());
-        output.println(gameStatus.getLocationDescription());
-        output.println();
+        output.print(world.getDescription() + gameStatus.getLocationDescription());
     }
 
     /**

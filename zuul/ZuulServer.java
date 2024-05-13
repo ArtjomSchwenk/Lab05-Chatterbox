@@ -31,12 +31,12 @@ public class ZuulServer {
 
     public void startServer() {
         try {
-            clientSocket = serverSocket.accept();    // waits for a client connection
+            clientSocket = serverSocket.accept();
             System.out.println("Client connected: " + clientSocket.getInetAddress());
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            game = new Game(in, out);  // pass streams directly to the game
+            game = new Game(in, out);
             game.play();
 
         } catch (IOException e) {
